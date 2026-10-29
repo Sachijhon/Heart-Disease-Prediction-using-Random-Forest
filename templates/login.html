@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CardioAI Login</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="login-left">
+
+        <div class="brand-badge">
+            CARDIOAI • SECURE ACCESS
+        </div>
+
+        <h1>
+            Welcome to <span>CardioAI</span>
+        </h1>
+
+        <p>
+            AI-powered clinical decision support system for cardiovascular risk assessment and medical reporting.
+        </p>
+
+    </div>
+
+    <div class="login-right">
+
+        <div class="login-card">
+
+            <h2>Doctor Login</h2>
+
+            {% if error %}
+                <p class="error-message">{{ error }}</p>
+            {% endif %}
+
+            <form action="/login" method="POST">
+
+                <div class="input-group">
+                    <label>Email Address</label>
+
+                    <input type="email"
+                           name="email"
+                           placeholder="doctor@hospital.com"
+                           required>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+
+                     <div class="password-container">
+        <input type="password"
+               id="password"
+               name="password"
+               placeholder="Enter password"
+               required>
+
+        <span class="toggle-password" onclick="togglePassword()">
+          Show
+        </span>
+    </div>
+
+                </div>
+
+                <!-- Password Rules -->
+
+                <div class="password-rules">
+
+                    <p>Password must contain:</p>
+
+                    <ul>
+                        <li>Minimum 8 characters</li>
+                        <li>Uppercase letter</li>
+                        <li>Number</li>
+                        <li>Special character</li>
+                    </ul>
+
+                </div>
+
+                <!-- Human Verification -->
+
+                <div class="verification-box">
+
+                    <input type="checkbox" required>
+
+                    <label>
+                        Verify you are a human user
+                    </label>
+
+                </div>
+
+                <!-- Forgot Password -->
+
+                <div class="forgot-password">
+<a href="/forgot-password">
+                        Forgot Password?
+                    </a>
+                </div>
+
+                <button type="submit">
+                    Login to Dashboard
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+function togglePassword() {
+    const password = document.getElementById("password");
+    const toggle = document.querySelector(".toggle-password");
+
+    if (password.type === "password") {
+        password.type = "text";
+        toggle.innerText = "Hide";
+    } else {
+        password.type = "password";
+        toggle.innerText = "Show";
+    }
+}
+</script>
+
+
+</body>
+</html>

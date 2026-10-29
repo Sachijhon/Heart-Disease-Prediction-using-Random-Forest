@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+    <title>Heart Disease Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="top-bar">
+<div class="nav-buttons">
+
+   <a href="{{ url_for('logout') }}" class="nav-btn logout-btn">
+    Logout
+</a>
+
+</div>
+
+
+        <div class="badge">
+            CARDIOAI • RISK ASSESSMENT
+        </div>
+
+        <h1>
+            Heart Disease <span>Risk Predictor</span>
+        </h1>
+
+        <p>
+            Enter patient vitals and clinical indicators below.
+            Our model evaluates cardiovascular risk using validated predictive features.
+        </p>
+
+    </div>
+
+    <div class="form-section">
+
+        <h2 class="section-title">
+            PATIENT INFORMATION
+        </h2>
+
+        <form action="/predict" method="POST">
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label>Age</label>
+                    <input type="number" name="age" placeholder="e.g. 55" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Gender</label>
+                    <select name="sex" required>
+                        <option value="">Select Gender</option>
+                        <option value="0">Female</option>
+                        <option value="1">Male</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Chest Pain Type</label>
+                    <select name="cp" required>
+                        <option value="">Select type</option>
+                        <option value="0">Typical Angina</option>
+                        <option value="1">Atypical Angina</option>
+                        <option value="2">Non-anginal Pain</option>
+                        <option value="3">Asymptomatic</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Resting Blood Pressure</label>
+                    <input type="number" name="trestbps" placeholder="mmHg, e.g. 130" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Serum Cholesterol</label>
+                    <input type="number" name="chol" placeholder="mg/dL, e.g. 240" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Fasting Blood Sugar</label>
+                    <select name="fbs" required>
+                        <option value="">Select level</option>
+                        <option value="0">Normal</option>
+                        <option value="1">High</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Resting ECG Results</label>
+                    <select name="restecg" required>
+                        <option value="">Select result</option>
+                        <option value="0">Normal</option>
+                        <option value="1">ST-T Abnormality</option>
+                        <option value="2">LV Hypertrophy</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Max Heart Rate Achieved</label>
+                    <input type="number" name="thalach" placeholder="e.g. 150" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Exercise Induced Angina</label>
+                    <select name="exang" required>
+                        <option value="">Select option</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>ST Depression (Oldpeak)</label>
+                    <input type="number" step="0.1" name="oldpeak" placeholder="e.g. 1.2" required>
+                </div>
+
+                <div class="input-group">
+                    <label>ST Slope</label>
+                    <select name="slope" required>
+                        <option value="">Select slope</option>
+                        <option value="0">Upsloping</option>
+                        <option value="1">Flat</option>
+                        <option value="2">Downsloping</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Major Vessels (0–3)</label>
+                    <select name="ca" required>
+                        <option value="">Select number</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Thalassemia</label>
+                    <select name="thal" required>
+                        <option value="">Select thalassemia type</option>
+                        <option value="0">Normal</option>
+                        <option value="1">Fixed Defect</option>
+                        <option value="2">Reversible Defect</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <button type="submit">
+                Predict Heart Disease Risk
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+<script>
+window.addEventListener("pageshow", function(event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
+});
+</script>
+
+</body>
+</html>

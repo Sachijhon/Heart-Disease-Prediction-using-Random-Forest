@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Prediction Result</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="top-bar">
+
+        <div class="badge">
+            CARDIOAI • AI ANALYSIS REPORT
+        </div>
+
+        <h1>
+            AI Heart Disease <span>Risk Analysis</span>
+        </h1>
+
+        <p>
+            AI-generated cardiovascular risk assessment and clinical decision support report.
+        </p>
+
+    </div>
+
+    <div class="form-section">
+
+        <div class="result">
+
+            <h2>{{ prediction }}% Heart Disease Risk</h2>
+
+            <!-- Circular Risk Meter -->
+
+            <div class="circle-wrapper">
+
+                <div class="circle-meter"
+                     style="background: conic-gradient(
+                     #ff4d6d {{ prediction * 3.6 }}deg,
+                     #dbe7f2 0deg);">
+
+                    <div class="circle-inner">
+
+                        <h2>{{ prediction }}%</h2>
+
+                        <span>Risk Score</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Heart Risk Gauge -->
+
+            <div class="gauge-container">
+
+                <div class="gauge-labels">
+                    <span>LOW</span>
+                    <span>MODERATE</span>
+                    <span>HIGH</span>
+                </div>
+
+                <div class="gauge-bar">
+
+                    <div class="gauge-indicator"
+                         style="left: {{ prediction }}%;">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Progress Bar -->
+
+            <div class="risk-bar">
+
+                <div class="risk-fill"
+                     style="width: {{ prediction }}%;">
+                </div>
+
+            </div>
+
+            <h3>{{ risk }}</h3>
+
+            <p>{{ advice }}</p>
+
+            <!-- AI Summary -->
+
+            <h3>AI Clinical Insights</h3>
+
+            <p class="ai-summary">
+                {{ ai_summary }}
+            </p>
+
+            <!-- Explainable AI -->
+
+            <h3>Main Risk Contributors</h3>
+
+            <ul class="factor-list">
+
+                {% for factor in factors %}
+
+                    <li>{{ factor }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+            <!-- No Disease -->
+
+            <p>
+                <strong>No Disease Probability:</strong>
+                {{ no_prediction }}%
+            </p>
+
+            <!-- Download Button -->
+
+            <a href="/download_report" class="download-btn">
+                Download Medical Report
+            </a>
+
+            <!-- Back Button -->
+
+            <a href="/dashboard" class="download-btn"
+               style="margin-left:15px;">
+                Back to Dashboard
+            </a>
+
+            <div class="footer-note">
+                Educational use only. Not a substitute for medical advice.
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#eef4f9;
+    min-height:100vh;
+    padding:40px 20px;
+    color:#1e293b;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    background:white;
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.top-bar{
+    background:linear-gradient(135deg,#071b3a,#0a2e63);
+    color:white;
+    padding:45px;
+    position:relative;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 18px;
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:40px;
+    font-size:13px;
+    margin-bottom:22px;
+    background:rgba(255,255,255,0.06);
+    letter-spacing:1px;
+}
+
+.top-bar h1{
+    font-size:48px;
+    font-weight:700;
+    margin-bottom:18px;
+    line-height:1.2;
+}
+
+.top-bar span{
+    color:#ff9aa9;
+}
+
+.top-bar p{
+    max-width:600px;
+    line-height:1.8;
+    color:#d9e7ff;
+    font-size:16px;
+}
+
+.form-section{
+    padding:45px;
+}
+
+.section-title{
+    font-size:20px;
+    font-weight:700;
+    color:#15396b;
+    margin-bottom:30px;
+    letter-spacing:1px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+}
+
+.input-group{
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    margin-bottom:10px;
+    color:#1f4271;
+    font-size:15px;
+    font-weight:600;
+}
+
+input,
+select{
+    width:100%;
+    padding:18px;
+    border:1.5px solid #d6e2ee;
+    border-radius:16px;
+    background:white;
+    font-size:15px;
+    outline:none;
+    transition:0.3s ease;
+    color:#334155;
+}
+
+input:focus,
+select:focus{
+    border-color:#1673b1;
+    box-shadow:0 0 0 5px rgba(22,115,177,0.12);
+}
+
+button{
+    width:100%;
+    margin-top:40px;
+    padding:20px;
+    border:none;
+    border-radius:18px;
+    background:linear-gradient(135deg,#071b3a,#0a2e63);
+    color:white;
+    font-size:20px;
+    font-weight:600;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+button::before{
+    content:'❤';
+    position:absolute;
+    left:35%;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:24px;
+    color:#ff0000;
+    animation:heartbeat 1s infinite;
+    text-shadow:0 0 12px rgba(255,107,129,0.8);
+}
+
+@keyframes heartbeat{
+
+    0%{
+        transform:translateY(-50%) scale(1);
+    }
+
+    25%{
+        transform:translateY(-50%) scale(1.2);
+    }
+
+    50%{
+        transform:translateY(-50%) scale(1);
+    }
+
+    75%{
+        transform:translateY(-50%) scale(1.2);
+    }
+
+    100%{
+        transform:translateY(-50%) scale(1);
+    }
+
+}
+
+.result{
+    margin-top:40px;
+    background:#f8fbff;
+    border:1px solid #dbe7f2;
+    border-radius:20px;
+    padding:35px;
+    width:100%;
+}
+
+.result h2{
+    color:#0a2e63;
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.result h3{
+    color:#1673b1;
+    margin-bottom:14px;
+    font-size:24px;
+}
+
+.result p{
+    font-size:16px;
+    line-height:1.8;
+    color:#475569;
+}
+
+.risk-bar{
+    width:100%;
+    height:22px;
+    background:#d9e8f4;
+    border-radius:30px;
+    overflow:hidden;
+    margin:22px 0;
+}
+
+.risk-fill{
+    height:100%;
+    background:linear-gradient(90deg,#ff9800,#ff4d6d);
+    border-radius:30px;
+}
+
+.footer-note{
+    margin-top:20px;
+    color:#64748b;
+    font-size:13px;
+}
+
+.factor-list{
+    margin-top:15px;
+    padding-left:20px;
+}
+
+.factor-list li{
+    margin-bottom:10px;
+    color:#334155;
+    font-size:15px;
+    line-height:1.6;
+}
+
+.ai-summary{
+    background:#eef6ff;
+    border-left:5px solid #1673b1;
+    padding:18px;
+    border-radius:12px;
+    margin-bottom:20px;
+    color:#334155;
+    line-height:1.8;
+}
+
+/* Circular Risk Meter */
+
+.circle-wrapper{
+    display:flex;
+    justify-content:center;
+    margin:35px 0;
+}
+
+.circle-meter{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+.circle-inner{
+    width:170px;
+    height:170px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.circle-inner h2{
+    font-size:42px;
+    color:#0a2e63;
+    margin-bottom:5px;
+}
+
+.circle-inner span{
+    color:#64748b;
+    font-size:15px;
+    font-weight:500;
+}
+
+/* Heart Risk Gauge */
+
+.gauge-container{
+    margin-top:35px;
+}
+
+.gauge-labels{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:12px;
+    font-size:14px;
+    font-weight:600;
+    color:#475569;
+}
+
+.gauge-bar{
+    width:100%;
+    max-width:100%;
+    height:18px;
+    border-radius:30px;
+    background:linear-gradient(
+        90deg,
+        #22c55e,
+        #facc15,
+        #ef4444
+    );
+    position:relative;
+}
+
+.gauge-indicator{
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:white;
+    border:4px solid #0a2e63;
+    position:absolute;
+    top:50%;
+    transform:translate(-50%, -50%);
+    transition:0.4s ease;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Download Report Button */
+
+.download-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:18px 34px;
+    background:linear-gradient(135deg,#071b3a,#0a2e63);
+    color:white;
+    text-decoration:none;
+    border-radius:16px;
+    font-weight:600;
+    font-size:16px;
+    transition:0.3s ease;
+}
+
+.download-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(0,0,0,0.15);
+}
+
+@media(max-width:900px){
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .top-bar h1{
+        font-size:34px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    body{
+        padding:15px;
+    }
+
+    .top-bar{
+        padding:30px;
+    }
+
+    .form-section{
+        padding:25px;
+    }
+
+}
+.logout-btn{
+    position:absolute;
+    top:25px;
+    right:30px;
+    background:#ff4d6d;
+    color:white;
+    padding:12px 22px;
+    border:none;
+    border-radius:12px;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s ease;
+    z-index:10;
+}
+
+.logout-btn:hover{
+    background:#e6395d;
+    transform:translateY(-2px);
+}

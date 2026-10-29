@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#eef4f9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.login-container{
+    width:100%;
+    max-width:1200px;
+    min-height:650px;
+    background:white;
+    border-radius:28px;
+    overflow:hidden;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.login-left{
+    background:linear-gradient(135deg,#071b3a,#0a2e63);
+    color:white;
+    padding:70px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.brand-badge{
+    display:inline-block;
+    padding:10px 18px;
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:40px;
+    font-size:13px;
+    margin-bottom:25px;
+    background:rgba(255,255,255,0.06);
+    letter-spacing:1px;
+    width:max-content;
+}
+
+.login-left h1{
+    font-size:52px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.login-left span{
+    color:#ff9aa9;
+}
+
+.login-left p{
+    color:#d9e7ff;
+    line-height:1.9;
+    font-size:16px;
+    max-width:450px;
+}
+
+.login-right{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+}
+
+.login-card{
+    width:100%;
+    max-width:420px;
+}
+
+.login-card h2{
+    font-size:34px;
+    color:#0a2e63;
+    margin-bottom:20px;
+}
+
+.error-message{
+    color:#ef4444;
+    margin-bottom:20px;
+    font-size:14px;
+    font-weight:500;
+}
+
+.input-group{
+    margin-bottom:25px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:10px;
+    color:#1f4271;
+    font-weight:600;
+}
+
+.input-group input{
+    width:100%;
+    padding:18px;
+    border:1.5px solid #d6e2ee;
+    border-radius:16px;
+    font-size:15px;
+    outline:none;
+    transition:0.3s ease;
+}
+
+.input-group input:focus{
+    border-color:#1673b1;
+    box-shadow:0 0 0 5px rgba(22,115,177,0.12);
+}
+
+/* Password Rules */
+
+.password-container{
+    position:relative;
+    width:100%;
+}
+
+.password-container input{
+    width:100%;
+    padding:18px 80px 18px 18px;
+}
+
+.toggle-password{
+    position:absolute;
+    right:20px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    color:#1673b1;
+    user-select:none;
+    z-index:10;
+}
+
+
+.password-rules{
+    background:#f8fbff;
+    border:1px solid #dbe7f2;
+    border-radius:14px;
+    padding:16px;
+    margin-bottom:20px;
+}
+
+.password-rules p{
+    font-weight:600;
+    margin-bottom:10px;
+    color:#0a2e63;
+}
+
+.password-rules ul{
+    padding-left:20px;
+}
+
+.password-rules li{
+    margin-bottom:8px;
+    color:#475569;
+    font-size:14px;
+}
+
+/* Verification Box */
+
+.verification-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:#f8fbff;
+    border:1px solid #dbe7f2;
+    border-radius:14px;
+    padding:16px;
+    margin-bottom:20px;
+}
+
+.verification-box input{
+    width:18px;
+    height:18px;
+}
+
+.verification-box label{
+    margin:0;
+    color:#334155;
+    font-size:14px;
+}
+
+/* Forgot Password */
+
+.forgot-password{
+    text-align:right;
+    margin-bottom:25px;
+}
+
+.forgot-password a{
+    color:#1673b1;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+}
+
+.forgot-password a:hover{
+    text-decoration:underline;
+}
+
+button{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:16px;
+    background:linear-gradient(135deg,#071b3a,#0a2e63);
+    color:white;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(0,0,0,0.15);
+}
+
+@media(max-width:900px){
+
+    .login-container{
+        grid-template-columns:1fr;
+    }
+
+    .login-left{
+        padding:50px;
+    }
+
+    .login-left h1{
+        font-size:40px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .login-left,
+    .login-right{
+        padding:30px;
+    }
+
+    .login-left h1{
+        font-size:32px;
+    }
+
+}
